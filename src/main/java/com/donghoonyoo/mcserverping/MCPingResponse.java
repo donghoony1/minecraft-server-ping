@@ -26,19 +26,14 @@
  * authors and contributors and should not be interpreted as representing official policies,
  * either expressed or implied, of anybody else.
  */
-package br.com.azalim.mcserverping;
+package com.donghoonyoo.mcserverping;
 
 import java.util.List;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * References: http://wiki.vg/Server_List_Ping
  * https://gist.github.com/thinkofdeath/6927216
  */
-@Getter
-@ToString
 public class MCPingResponse {
 
     /**
@@ -64,11 +59,36 @@ public class MCPingResponse {
     /**
      * @return Ping in ms.
      */
-    @Setter
     private long ping;
 
-    @Getter
-    @ToString
+    public Description getDescription() {
+        return this.description;
+    }
+
+    public Players getPlayers() {
+        return this.players;
+    }
+
+    public Version getVersion() {
+        return this.version;
+    }
+
+    public String getFavicon() {
+        return this.favicon;
+    }
+
+    public long getPing() {
+        return this.ping;
+    }
+
+    public String toString() {
+        return "MCPingResponse(description=" + this.getDescription() + ", players=" + this.getPlayers() + ", version=" + this.getVersion() + ", favicon=" + this.getFavicon() + ", ping=" + this.getPing() + ")";
+    }
+
+    public void setPing(long ping) {
+        this.ping = ping;
+    }
+
     public class Description {
 
         /**
@@ -80,10 +100,15 @@ public class MCPingResponse {
             return MCPingUtil.stripColors(this.text);
         }
 
+        public String getText() {
+            return this.text;
+        }
+
+        public String toString() {
+            return "MCPingResponse.Description(text=" + this.getText() + ")";
+        }
     }
 
-    @Getter
-    @ToString
     public class Players {
 
         /**
@@ -101,10 +126,23 @@ public class MCPingResponse {
          */
         private List<Player> sample;
 
+        public int getMax() {
+            return this.max;
+        }
+
+        public int getOnline() {
+            return this.online;
+        }
+
+        public List<Player> getSample() {
+            return this.sample;
+        }
+
+        public String toString() {
+            return "MCPingResponse.Players(max=" + this.getMax() + ", online=" + this.getOnline() + ", sample=" + this.getSample() + ")";
+        }
     }
 
-    @Getter
-    @ToString
     public class Player {
 
         /**
@@ -117,10 +155,19 @@ public class MCPingResponse {
          */
         private String id;
 
+        public String getName() {
+            return this.name;
+        }
+
+        public String getId() {
+            return this.id;
+        }
+
+        public String toString() {
+            return "MCPingResponse.Player(name=" + this.getName() + ", id=" + this.getId() + ")";
+        }
     }
 
-    @Getter
-    @ToString
     public class Version {
 
         /**
@@ -132,6 +179,17 @@ public class MCPingResponse {
          */
         private int protocol;
 
+        public String getName() {
+            return this.name;
+        }
+
+        public int getProtocol() {
+            return this.protocol;
+        }
+
+        public String toString() {
+            return "MCPingResponse.Version(name=" + this.getName() + ", protocol=" + this.getProtocol() + ")";
+        }
     }
 
 }

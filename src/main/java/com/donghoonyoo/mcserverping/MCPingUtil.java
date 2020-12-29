@@ -26,7 +26,7 @@
  * authors and contributors and should not be interpreted as representing official policies,
  * either expressed or implied, of anybody else.
  */
-package br.com.azalim.mcserverping;
+package com.donghoonyoo.mcserverping;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
